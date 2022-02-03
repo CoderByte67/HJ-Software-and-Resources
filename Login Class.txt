@@ -1,0 +1,139 @@
+
+class login_account implements ActionListener{
+	
+	JFrame frame = new JFrame();
+	ImageIcon icon = new ImageIcon("C://Users//Hamza//Desktop//Java Projects//PROJECTS//HJ Software & resources account system//x.png");
+	ImageIcon image = new ImageIcon("C:\\Users\\Hamza\\Desktop\\Java Projects\\PROJECTS\\HJ Software & resources account system//as.jpg");
+    JLabel stack_shade = new JLabel();
+	JLayeredPane pane = new JLayeredPane();
+    JLabel dashboard = new JLabel();
+    JLabel login_label = new JLabel();
+    Border border = BorderFactory.createLineBorder(Color.RED,3);
+    JLabel enter_email_label = new JLabel();
+    JLabel enter_password_label = new JLabel();
+    JTextField email_text_field = new JTextField();
+    JTextField password_text_field = new JTextField();
+    JLabel name_logo = new JLabel();
+    JButton login_button = new JButton();
+    JButton back_button = new JButton();
+    
+	login_account(){
+		
+		
+		
+		login_button.setBounds(250,350,140,30);
+		login_button.setText("L O G I N");
+		login_button.setFocusable(false);
+		login_button.setBorder(border);
+		login_button.addActionListener(this);
+		
+		back_button.setBounds(10,350,140,30);
+		back_button.setText("B A C K ");
+		back_button.setFocusable(false);
+		back_button.addActionListener(this);
+		back_button.setBorder(border);
+		
+		
+		name_logo.setIcon(icon);
+		name_logo.setBounds(150,5,500,280);
+		
+		
+		email_text_field.setBounds(150,150,210,30);
+		password_text_field.setBounds(150,240,210,30);
+		
+		
+		enter_email_label.setText("Enter  Email");
+		enter_email_label.setFont(new Font("MV BOLI",Font.PLAIN,17));
+		enter_email_label.setBounds(20,150,200,40);
+		
+		
+
+		enter_password_label.setText("Enter password");
+		enter_password_label.setFont(new Font("MV BOLI",Font.PLAIN,17));
+		enter_password_label.setBounds(20,240,200,40);
+		
+		
+		
+		login_label.setText("Account Login ");
+		login_label.setFont(new Font("Berlin Sans FB",Font.PLAIN,30));
+		login_label.setBounds(110,30,230,40);
+		login_label.setForeground(Color.green);
+		
+		
+		dashboard.setBounds(200,290,400,420);
+		dashboard.setOpaque(true);
+		dashboard.setBackground(Color.LIGHT_GRAY);
+		dashboard.add(login_label);
+		dashboard.add(email_text_field);
+		dashboard.add(enter_password_label);
+		dashboard.add(enter_email_label);
+		dashboard.add(password_text_field);
+		dashboard.add(email_text_field);
+		dashboard.add(password_text_field);
+		dashboard.add(login_button);
+		dashboard.add(back_button);
+		
+		
+		stack_shade.setBounds(230,310,400,420);
+		stack_shade.setBackground(Color.BLACK);
+		stack_shade.setOpaque(true);
+		
+		
+		
+		pane.setBounds(0,0,800,800);
+		pane.add(dashboard);
+		pane.add(stack_shade);
+		pane.add(name_logo);
+		
+		
+		
+		
+		frame.setVisible(true);
+		frame.setSize(800,800);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setResizable(false);
+	    frame.setIconImage(image.getImage());
+		frame.setTitle("ACCOUNT LOGIN");
+		frame.getContentPane().setBackground(Color.CYAN);
+	    frame.add(pane);
+	    
+	    
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==back_button) {
+			frame.dispose();
+			frame frame = new frame();
+		}
+		
+		
+		else if(e.getSource()==login_button) {
+			
+			String path_1 = "C://Users//Hamza//Desktop//Java Projects//PROJECTS//HJ Software & resources account system//account detail and passwords//"+email_text_field.getText()+"//"; 
+			String pass_file = password_text_field.getText()+".txt";
+			String path_2 = path_1+pass_file;
+			File file = new File(path_2);
+			 Boolean ans = file.isFile();
+			 
+			 if(ans==true) {
+				 JOptionPane.showMessageDialog(null, "Login Successfully");
+			 }
+			
+			 else {
+				 JOptionPane.showMessageDialog(null, "IN - Valid Password or Email\n Create Account if you haven't made one.");
+			 }
+			
+			
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+}
