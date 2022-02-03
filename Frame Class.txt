@@ -1,0 +1,141 @@
+class frame implements ActionListener{
+	
+	
+	
+	JFrame frame = new JFrame();
+	JButton create_new_account_button = new JButton();
+	JButton login_account_button = new JButton();
+	JButton forgot_password_button = new JButton();
+	JButton exit_button = new JButton();
+	JLayeredPane pane = new JLayeredPane();
+	JLabel dashboard = new JLabel();
+	JLabel stack_shade = new JLabel();
+	JLabel name = new JLabel();
+	JLabel visit_link = new JLabel();
+	JLabel dashboard_label = new JLabel();
+	Border border = BorderFactory.createLineBorder(Color.GREEN,3);
+	Border border1 = BorderFactory.createLineBorder(Color.BLUE,3);
+	Border border2 = BorderFactory.createLineBorder(Color.MAGENTA,3);
+	Border border3 = BorderFactory.createLineBorder(Color.RED,3);
+	
+	
+	
+	
+	  frame(){
+		
+		  
+		  ImageIcon icon = new ImageIcon("C://Users//Hamza//Desktop//Java Projects//PROJECTS//HJ Software & resources account system//x.png");
+		  ImageIcon image = new ImageIcon("C:\\Users\\Hamza\\Desktop\\Java Projects\\PROJECTS\\HJ Software & resources account system//as.jpg");
+		  
+		 
+		 
+		name.setBounds(150,5,500,280);
+		name.setIcon(icon);
+		 
+		  
+		  
+		visit_link.setText(" VISIT :-   www.HJsoftware.com");
+		visit_link.setBounds(120,360,200,30);
+	    visit_link.setForeground(Color.BLUE);
+		  
+		create_new_account_button.setBounds(120,120,160,30);
+		create_new_account_button.setText("Create New Account");
+		create_new_account_button.setFocusable(false);
+		create_new_account_button.setBorder(border);
+		create_new_account_button.addActionListener(this);
+		
+		
+		
+		login_account_button.setBounds(120,180,160,30);
+		login_account_button.setText("Login   Account ");
+		login_account_button.setFocusable(false);
+		login_account_button.setBorder(border1);
+		login_account_button.addActionListener(this);
+		
+		forgot_password_button.setBounds(120,240,160,30);
+		forgot_password_button.setText("Forgot Password ? ");
+		forgot_password_button.setFocusable(false);
+		forgot_password_button.setBorder(border2);
+		forgot_password_button.addActionListener(this);
+		
+		
+		exit_button.setBounds(120,300,160,30);
+		exit_button.setText("EXIT");
+		exit_button.setFocusable(false);
+		exit_button.setBorder(border3);
+		exit_button.addActionListener(this);
+		
+		
+		
+		
+		dashboard_label.setText("WELCOME TO DASHBOARD");
+		dashboard_label.setFont(new Font("Berlin Sans FB",Font.PLAIN,24));
+		dashboard_label.setBounds(50,30,290,30);
+		
+		
+		dashboard.setBounds(200,310,400,400);
+		dashboard.setOpaque(true);
+		dashboard.setBackground(Color.LIGHT_GRAY);
+		dashboard.add(dashboard_label);
+		dashboard.add(create_new_account_button);
+		dashboard.add(login_account_button);
+		dashboard.add(forgot_password_button);
+		dashboard.add(exit_button);
+		dashboard.add(visit_link);
+		
+		stack_shade.setBounds(230,330,400,400);
+		stack_shade.setBackground(Color.BLACK);
+		stack_shade.setOpaque(true);
+		
+		
+		pane.setBounds(0,0,600,600);
+		//pane.setBorder(border);
+		pane.setBackground(Color.YELLOW);
+		pane.setOpaque(true);
+		pane.add(dashboard);
+		pane.add(stack_shade);
+		pane.add(name);
+		
+		
+		
+		
+		
+		frame.setVisible(true);
+		frame.setSize(800,800);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setResizable(false);
+	    frame.setIconImage(image.getImage());
+	    frame.setTitle("HJ SOFTWARE'S  DASHBAORD");
+	    frame.add(pane);
+	
+	
+	}
+
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==create_new_account_button) {
+			frame.dispose();
+			new_account new_account = new new_account();
+		}
+		else if (e.getSource()==login_account_button) {
+			frame.dispose();
+			login_account login_account = new login_account();
+		}
+		
+		else if(e.getSource()==forgot_password_button) {
+			frame.dispose();
+			forgot_password forgot_password = new forgot_password();
+		}
+		
+		else if (e.getSource()==exit_button) {
+			frame.dispose();
+			exit exit = new exit();
+		}
+	}
+	
+	
+	
+}
